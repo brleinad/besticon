@@ -92,6 +92,7 @@ func (s *server) iconHandler(w http.ResponseWriter, r *http.Request) {
 		s.returnIcon(w, r, icon.URL)
 		return
 	}
+	logger.Printf("Checking \"%s\": not present, using fallback", url)
 
 	fallbackIconURL := r.FormValue("fallback_icon_url")
 	if fallbackIconURL != "" {
